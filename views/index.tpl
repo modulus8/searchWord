@@ -11,6 +11,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<audio controls="controls">
+	<source src="{{oxford.mp3}}" type="audio/mpeg">
+</audio>
+<hr>
+<form action="/" method="get">
+	<div><input id="word" type="text" name="word" value="{{word}}" autofocus></div>
+	<div>
+		<button type="submit">検索</button>
+		<button type="button" onclick="window.reset()">リセット</button>
+	</div>
+</form>
+
+
+<hr>
 <p>
 	<strong>[W]:</strong>
 	<span>{{weblio.title}}</span>
@@ -24,18 +38,6 @@
 	<span>{{weblio.prediction_all}}<br /></span>
 </p>
 
-<audio controls="controls">
-	<source src="{{oxford.mp3}}" type="audio/mpeg">
-</audio>
-
-<hr>
-<form action="/" method="get">
-	<div><input id="word" type="text" name="word" value="{{word}}" autofocus></div>
-	<div>
-		<button type="submit">検索</button>
-		<button type="button" onclick="window.reset()">リセット</button>
-	</div>
-</form>
 
 <script>
 	function reset(){
