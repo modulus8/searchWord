@@ -2,7 +2,8 @@
 <head>
 	<title>シンプル英単語検索</title>
 	<style>
-		body{margin-left: auto; margin-right: auto; width:70%;}
+		body{ margin-left: auto; margin-right: auto; width:70%;}
+		input{font-size:18px;}
 		audio{width:90%;}
 	</style>
 	<meta name="apple-mobile-web-app-capable" content="yes">
