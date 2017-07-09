@@ -13,5 +13,5 @@ def index():
 	oxford = Oxford(word)
 	return dict(word=word,weblio=weblio, oxford=oxford)
 
-run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+run(host="0.0.0.0", port=(os.environ.get("PORT",5200)))
 #run(host="localhost", port=3000, debug=True, reloader=True)
