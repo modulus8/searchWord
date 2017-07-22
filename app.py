@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 
 import os
-from bottle import route, run, static_file, view, request
+from bottle import route, run, static_file, view, request, response
 from oxford import *
 from weblio import *
 
@@ -10,6 +10,8 @@ class Foo:pass
 @route("/")
 @view('index')
 def index():
+	response.set_header('Cache-Control: private', 'max-age=86400')
+	print(response)
 	word = request.query.word
 	if word == "":
 		weblio = Foo()
