@@ -6,6 +6,7 @@
 		input{font-size:18px;}
 		audio{width:90%;}
 	</style>
+	<meta http-equiv="Expires" content="25920000">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,7 @@
 	<span>{{weblio.others}}<br /></span>
 	<span>{{weblio.prediction_all}}<br /></span>
 </p>
-<audio controls="controls">
+<audio controls="controls" onended="window.focus()">
 	<source src="{{oxford.mp3}}" type="audio/mpeg">
 </audio>
 
@@ -43,8 +44,13 @@
 <script>
 	function reset(){
 		document.getElementById('word').value="";
+		window.focus();
+	}
+	
+	function focus(){
 		document.getElementById('word').focus();
 	}
+
 </script>
 </body>
 </html>

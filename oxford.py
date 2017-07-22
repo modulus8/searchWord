@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup as bs
 class Oxford(object):
 	title = "None"
 	pronounce = "None"
-	mp3 = "None"
+	mp3 = "javascript:void(0)"
 	headers = {
 		'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
 		'Upgrade-Insecure-Requests':'1',
@@ -49,7 +49,7 @@ class Oxford(object):
 			self.mp3 = self.mp3.find_all(class_="sound audio_play_button pron-us icon-audio")[0]
 			self.mp3 = self.mp3.get("data-src-mp3")
 		else:
-			self.mp3 = "None"
+			self.mp3 = "javascript:void(0)"
 
 
 
