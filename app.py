@@ -23,6 +23,19 @@ def index():
 		oxford = Oxford(word)
 	return dict(word=word,weblio=weblio, oxford=oxford)
 
+@route("/echo")
+def echo():
+	dicti = {
+		"userAgent": request.get_header('User-Agent'),
+		"requestMethod": request.method,
+		"reqyestBody": request.body,
+		"requestUrl": request.url,
+		"requestUrlparts": request.urlparts,
+		"requestRemoteAddr": request.remote_addr,
+		"requestParams": request.params,
+	}
+	return str(dicti)
+
 if __name__ == "__main__":
 	if os.getenv("HEROKU")==None:
 		run(host="192.168.1.6", port=3000, debug=True, reloader=True)
