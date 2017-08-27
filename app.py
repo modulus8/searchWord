@@ -16,7 +16,7 @@ def index():
 	if word == "":
 		weblio = Foo()
 		oxford = Foo()
-		weblio.title, weblio.translation, weblio.others, weblio.prediction_all = "None", "None", "None", {}
+		weblio.title, weblio.translation, weblio.others, weblio.prediction_all, weblio.example = "None", "None", "None", {}, []
 		oxford.title, oxford.pronounce, oxford.mp3 = "None", "None", "javascript:void(0)"
 	else:
 		weblio = Weblio(word)
@@ -34,6 +34,7 @@ def echo():
 		"requestRemoteAddr": request.remote_addr,
 		"requestParams": request.params,
 	}
+	print(str(dicti))
 	return str(dicti)
 
 if __name__ == "__main__":

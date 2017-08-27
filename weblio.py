@@ -9,6 +9,7 @@ class Weblio(object):
 	translation = "None"
 	others = "None"
 	prediction_all = {}
+	example = []
 	
 	def __init__(self, word):
 		URL = (
@@ -22,6 +23,7 @@ class Weblio(object):
 			self.get_others(soup)
 			if self.others != "予測候補なし":
 				self.get_prediction_all(soup)
+		self.get_example(word)
 	
 	def get_title(self,soup):
 		self.title = soup.find(id="h1Query")
@@ -64,12 +66,16 @@ class Weblio(object):
 				preTransNew.append(pre)
 		for (a, b) in zip(preList, preTransNew):
 			self.prediction_all[a] = b
+	
+	def get_example(self, word):
+		r = requests.get("http://ejje.weblio.jp/sentence/content/" + word)
+		soup = bs(r.text, "html.parser")
+		self.example = []
+		sentences = soup.find_all(class_="qotC", limit=10)
+		for s in sentences:
+			self.example.append(s.text.replace("例文帳に追加", " =>", 1).split(" - ")[0]) 
 
 
-#word = "seavera"
-#oxford = Oxford("apple")
-#print(oxford.mp3)
-
-#weblio = Weblio("apple")
-#print(weblio.title)
+#weblio = Weblio(input(">"))
+#print(weblio.example)
 
