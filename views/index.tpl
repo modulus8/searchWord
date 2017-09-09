@@ -40,23 +40,32 @@
 </form>
 
 <hr>
-<div>
-	<ul>
-		% for sentence in weblio.example:
-			<li class="example_list">{{sentence}}</li>
-		% end
-	</ul>
+
+<div id="example_js">
 </div>
+
+<script type="text/javascript" src="/file/js/jquery-3.2.1.min.js"></script>
 <script>
+	$(function(){
+		$.ajax({
+			type: "get",
+			url: "/add_example?word={{word}}",
+			data: $(this).serialize(),
+			success: function(response){
+				$("#example_js").html(response);
+			}
+		});
+
+	});
+
 	function reset(){
 		document.getElementById('word').value="";
 		window.focus();
 	}
-	
+
 	function focus(){
 		document.getElementById('word').focus();
 	}
-
 </script>
 </body>
 </html>
